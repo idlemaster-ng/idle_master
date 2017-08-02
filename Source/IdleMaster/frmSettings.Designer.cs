@@ -36,6 +36,9 @@ namespace IdleMaster
             this.grpGeneral = new System.Windows.Forms.GroupBox();
             this.cboLanguage = new System.Windows.Forms.ComboBox();
             this.lblLanguage = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonHelpStartOnBoot = new System.Windows.Forms.Button();
+            this.chkStartOnBoot = new System.Windows.Forms.CheckBox();
             this.chkShowUsername = new System.Windows.Forms.CheckBox();
             this.chkIgnoreClientStatus = new System.Windows.Forms.CheckBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
@@ -57,6 +60,7 @@ namespace IdleMaster
             this.grpPriority.SuspendLayout();
             this.grpIdlingQuantity.SuspendLayout();
             this.SuspendLayout();
+            
             // 
             // grpGeneral
             // 
@@ -117,6 +121,46 @@ namespace IdleMaster
             this.lblLanguage.TabIndex = 3;
             this.lblLanguage.Text = "Interface Language:";
             this.lblLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+
+            //
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonHelpStartOnBoot);
+            this.groupBox1.Controls.Add(this.chkStartOnBoot);
+            this.groupBox1.Controls.Add(this.chkShowUsername);
+            this.groupBox1.Controls.Add(this.chkIgnoreClientStatus);
+            this.groupBox1.Controls.Add(this.chkMinToTray);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(322, 98);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "General";
+
+            // 
+            // buttonHelpStartOnBoot
+            // 
+            this.buttonHelpStartOnBoot.Cursor = System.Windows.Forms.Cursors.Help;
+            this.buttonHelpStartOnBoot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHelpStartOnBoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonHelpStartOnBoot.Location = new System.Drawing.Point(101, 75);
+            this.buttonHelpStartOnBoot.Name = "buttonHelpStartOnBoot";
+            this.buttonHelpStartOnBoot.Size = new System.Drawing.Size(18, 20);
+            this.buttonHelpStartOnBoot.TabIndex = 4;
+            this.buttonHelpStartOnBoot.TabStop = false;
+            this.buttonHelpStartOnBoot.Text = "?";
+            this.buttonHelpStartOnBoot.UseVisualStyleBackColor = true;
+            this.buttonHelpStartOnBoot.MouseEnter += new System.EventHandler(this.buttonHelpStartOnBoot_MouseEnter);
+            // 
+            // chkStartOnBoot
+            // 
+            this.chkStartOnBoot.AutoSize = true;
+            this.chkStartOnBoot.Location = new System.Drawing.Point(8, 75);
+            this.chkStartOnBoot.Name = "chkStartOnBoot";
+            this.chkStartOnBoot.Size = new System.Drawing.Size(87, 17);
+            this.chkStartOnBoot.TabIndex = 3;
+            this.chkStartOnBoot.Text = "Start on boot";
+            this.chkStartOnBoot.UseVisualStyleBackColor = true;
             // 
             // chkShowUsername
             // 
@@ -217,7 +261,7 @@ namespace IdleMaster
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(330, 327);
+            this.btnCancel.Location = new System.Drawing.Point(261, 283);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -228,7 +272,7 @@ namespace IdleMaster
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(249, 327);
+            this.btnOK.Location = new System.Drawing.Point(180, 283);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -236,11 +280,19 @@ namespace IdleMaster
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // ttHints
+            // 
+            this.ttHints.AutomaticDelay = 0;
+            this.ttHints.AutoPopDelay = 0;
+            this.ttHints.InitialDelay = 10;
+            this.ttHints.IsBalloon = true;
+            this.ttHints.ReshowDelay = 10;
+            // 
             // btnAdvanced
             // 
             this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdvanced.Image = global::IdleMaster.Properties.Resources.imgLock;
-            this.btnAdvanced.Location = new System.Drawing.Point(12, 327);
+            this.btnAdvanced.Location = new System.Drawing.Point(12, 283);
             this.btnAdvanced.Name = "btnAdvanced";
             this.btnAdvanced.Size = new System.Drawing.Size(25, 23);
             this.btnAdvanced.TabIndex = 4;
@@ -353,12 +405,14 @@ namespace IdleMaster
         private ToolTip ttHints;
         private CheckBox chkIgnoreClientStatus;
         private CheckBox chkShowUsername;
-    private GroupBox grpIdlingQuantity;
-    private RadioButton radManyThenOne;
-    private RadioButton radOneGameOnly;
-    private ComboBox cboLanguage;
-    private Label lblLanguage;
-    private RadioButton radOneThenMany;
+        private GroupBox grpIdlingQuantity;
+        private RadioButton radManyThenOne;
+        private RadioButton radOneGameOnly;
+        private ComboBox cboLanguage;
+        private Label lblLanguage;
+        private RadioButton radOneThenMany;
         private RadioButton radAlwaysMany;
+        private CheckBox chkStartOnBoot;
+        private Button buttonHelpStartOnBoot;
     }
 }
