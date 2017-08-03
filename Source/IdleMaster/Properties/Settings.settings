@@ -59,10 +59,10 @@
     <Setting Name="AlwaysMany" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="mainWindowLeft" Type="System.UInt32" Scope="User">
+    <Setting Name="mainWindowLeft" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="mainWindowTop" Type="System.UInt32" Scope="User">
+    <Setting Name="mainWindowTop" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="useMainWindowPos" Type="System.Boolean" Scope="User">

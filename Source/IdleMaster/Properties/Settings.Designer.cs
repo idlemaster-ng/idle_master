@@ -244,9 +244,9 @@ namespace IdleMaster.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public uint mainWindowLeft {
+        public int mainWindowLeft {
             get {
-                return ((uint)(this["mainWindowLeft"]));
+                return ((int)(this["mainWindowLeft"]));
             }
             set {
                 this["mainWindowLeft"] = value;
@@ -256,9 +256,9 @@ namespace IdleMaster.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public uint mainWindowTop {
+        public int mainWindowTop {
             get {
-                return ((uint)(this["mainWindowTop"]));
+                return ((int)(this["mainWindowTop"]));
             }
             set {
                 this["mainWindowTop"] = value;
