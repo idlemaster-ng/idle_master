@@ -115,6 +115,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Average price.
+        /// </summary>
+        internal static string average_price {
+            get {
+                return ResourceManager.GetString("average_price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Badge page didn&apos;t load, will retry in __num__ seconds.
         /// </summary>
         internal static string badge_didnt_load {
@@ -156,6 +165,24 @@ namespace IdleMaster.localization {
         internal static string card_drops_remaining {
             get {
                 return ResourceManager.GetString("card_drops_remaining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cards count.
+        /// </summary>
+        internal static string cards_count {
+            get {
+                return ResourceManager.GetString("cards_count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose game.
+        /// </summary>
+        internal static string choose_game {
+            get {
+                return ResourceManager.GetString("choose_game", resourceCulture);
             }
         }
         
@@ -210,6 +237,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game name.
+        /// </summary>
+        internal static string game_name {
+            get {
+                return ResourceManager.GetString("game_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to games left to idle.
         /// </summary>
         internal static string games_left_to_idle {
@@ -251,6 +287,15 @@ namespace IdleMaster.localization {
         internal static string hrs_on_record {
             get {
                 return ResourceManager.GetString("hrs_on_record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Idle games simultaneously regardless of time.
+        /// </summary>
+        internal static string idle_alwaysmany {
+            get {
+                return ResourceManager.GetString("idle_alwaysmany", resourceCulture);
             }
         }
         
@@ -629,6 +674,25 @@ namespace IdleMaster.localization {
         internal static string sorting_results {
             get {
                 return ResourceManager.GetString("sorting_results", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start on boot.
+        /// </summary>
+        internal static string start_on_boot {
+            get {
+                return ResourceManager.GetString("start_on_boot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IdleMaster needs Steam running, to start on boot you have to make steam start on boot first
+        ///(Steam-Settings-Interface-Run Steam when my computer starts).
+        /// </summary>
+        internal static string start_on_boot_hint {
+            get {
+                return ResourceManager.GetString("start_on_boot_hint", resourceCulture);
             }
         }
         

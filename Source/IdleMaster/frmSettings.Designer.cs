@@ -36,12 +36,11 @@ namespace IdleMaster
             this.grpGeneral = new System.Windows.Forms.GroupBox();
             this.cboLanguage = new System.Windows.Forms.ComboBox();
             this.lblLanguage = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonHelpStartOnBoot = new System.Windows.Forms.Button();
-            this.chkStartOnBoot = new System.Windows.Forms.CheckBox();
             this.chkShowUsername = new System.Windows.Forms.CheckBox();
             this.chkIgnoreClientStatus = new System.Windows.Forms.CheckBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
+            this.buttonHelpStartOnBoot = new System.Windows.Forms.Button();
+            this.chkStartOnBoot = new System.Windows.Forms.CheckBox();
             this.grpPriority = new System.Windows.Forms.GroupBox();
             this.radIdleMostValue = new System.Windows.Forms.RadioButton();
             this.radIdleLeastDrops = new System.Windows.Forms.RadioButton();
@@ -52,15 +51,14 @@ namespace IdleMaster
             this.ttHints = new System.Windows.Forms.ToolTip(this.components);
             this.btnAdvanced = new System.Windows.Forms.Button();
             this.grpIdlingQuantity = new System.Windows.Forms.GroupBox();
+            this.radAlwaysMany = new System.Windows.Forms.RadioButton();
             this.radOneThenMany = new System.Windows.Forms.RadioButton();
             this.radManyThenOne = new System.Windows.Forms.RadioButton();
             this.radOneGameOnly = new System.Windows.Forms.RadioButton();
-            this.radAlwaysMany = new System.Windows.Forms.RadioButton();
             this.grpGeneral.SuspendLayout();
             this.grpPriority.SuspendLayout();
             this.grpIdlingQuantity.SuspendLayout();
             this.SuspendLayout();
-            
             // 
             // grpGeneral
             // 
@@ -71,9 +69,11 @@ namespace IdleMaster
             this.grpGeneral.Controls.Add(this.chkShowUsername);
             this.grpGeneral.Controls.Add(this.chkIgnoreClientStatus);
             this.grpGeneral.Controls.Add(this.chkMinToTray);
+            this.grpGeneral.Controls.Add(this.buttonHelpStartOnBoot);
+            this.grpGeneral.Controls.Add(this.chkStartOnBoot);
             this.grpGeneral.Location = new System.Drawing.Point(13, 13);
             this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(392, 106);
+            this.grpGeneral.Size = new System.Drawing.Size(392, 127);
             this.grpGeneral.TabIndex = 0;
             this.grpGeneral.TabStop = false;
             this.grpGeneral.Text = "General";
@@ -108,7 +108,7 @@ namespace IdleMaster
             "Thai",
             "Turkish",
             "Ukrainian"});
-            this.cboLanguage.Location = new System.Drawing.Point(135, 76);
+            this.cboLanguage.Location = new System.Drawing.Point(115, 13);
             this.cboLanguage.Name = "cboLanguage";
             this.cboLanguage.Size = new System.Drawing.Size(190, 21);
             this.cboLanguage.TabIndex = 4;
@@ -116,58 +116,18 @@ namespace IdleMaster
             // lblLanguage
             // 
             this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Location = new System.Drawing.Point(26, 79);
+            this.lblLanguage.Location = new System.Drawing.Point(6, 16);
             this.lblLanguage.Name = "lblLanguage";
             this.lblLanguage.Size = new System.Drawing.Size(103, 13);
             this.lblLanguage.TabIndex = 3;
             this.lblLanguage.Text = "Interface Language:";
             this.lblLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            //
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.buttonHelpStartOnBoot);
-            this.groupBox1.Controls.Add(this.chkStartOnBoot);
-            this.groupBox1.Controls.Add(this.chkShowUsername);
-            this.groupBox1.Controls.Add(this.chkIgnoreClientStatus);
-            this.groupBox1.Controls.Add(this.chkMinToTray);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(322, 98);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "General";
-
-            // 
-            // buttonHelpStartOnBoot
-            // 
-            this.buttonHelpStartOnBoot.Cursor = System.Windows.Forms.Cursors.Help;
-            this.buttonHelpStartOnBoot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonHelpStartOnBoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonHelpStartOnBoot.Location = new System.Drawing.Point(101, 75);
-            this.buttonHelpStartOnBoot.Name = "buttonHelpStartOnBoot";
-            this.buttonHelpStartOnBoot.Size = new System.Drawing.Size(18, 20);
-            this.buttonHelpStartOnBoot.TabIndex = 4;
-            this.buttonHelpStartOnBoot.TabStop = false;
-            this.buttonHelpStartOnBoot.Text = "?";
-            this.buttonHelpStartOnBoot.UseVisualStyleBackColor = true;
-            this.buttonHelpStartOnBoot.MouseEnter += new System.EventHandler(this.buttonHelpStartOnBoot_MouseEnter);
-            // 
-            // chkStartOnBoot
-            // 
-            this.chkStartOnBoot.AutoSize = true;
-            this.chkStartOnBoot.Location = new System.Drawing.Point(8, 75);
-            this.chkStartOnBoot.Name = "chkStartOnBoot";
-            this.chkStartOnBoot.Size = new System.Drawing.Size(87, 17);
-            this.chkStartOnBoot.TabIndex = 3;
-            this.chkStartOnBoot.Text = "Start on boot";
-            this.chkStartOnBoot.UseVisualStyleBackColor = true;
             // 
             // chkShowUsername
             // 
             this.chkShowUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkShowUsername.Location = new System.Drawing.Point(8, 55);
+            this.chkShowUsername.Location = new System.Drawing.Point(9, 77);
             this.chkShowUsername.Name = "chkShowUsername";
             this.chkShowUsername.Size = new System.Drawing.Size(378, 19);
             this.chkShowUsername.TabIndex = 2;
@@ -178,7 +138,7 @@ namespace IdleMaster
             // 
             this.chkIgnoreClientStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkIgnoreClientStatus.Location = new System.Drawing.Point(8, 38);
+            this.chkIgnoreClientStatus.Location = new System.Drawing.Point(9, 60);
             this.chkIgnoreClientStatus.Name = "chkIgnoreClientStatus";
             this.chkIgnoreClientStatus.Size = new System.Drawing.Size(378, 17);
             this.chkIgnoreClientStatus.TabIndex = 1;
@@ -189,12 +149,36 @@ namespace IdleMaster
             // 
             this.chkMinToTray.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkMinToTray.Location = new System.Drawing.Point(8, 19);
+            this.chkMinToTray.Location = new System.Drawing.Point(9, 41);
             this.chkMinToTray.Name = "chkMinToTray";
             this.chkMinToTray.Size = new System.Drawing.Size(378, 17);
             this.chkMinToTray.TabIndex = 0;
             this.chkMinToTray.Text = "Minimize Idle Master to system tray";
             this.chkMinToTray.UseVisualStyleBackColor = true;
+            // 
+            // buttonHelpStartOnBoot
+            // 
+            this.buttonHelpStartOnBoot.Cursor = System.Windows.Forms.Cursors.Help;
+            this.buttonHelpStartOnBoot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHelpStartOnBoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonHelpStartOnBoot.Location = new System.Drawing.Point(102, 97);
+            this.buttonHelpStartOnBoot.Name = "buttonHelpStartOnBoot";
+            this.buttonHelpStartOnBoot.Size = new System.Drawing.Size(19, 21);
+            this.buttonHelpStartOnBoot.TabIndex = 4;
+            this.buttonHelpStartOnBoot.TabStop = false;
+            this.buttonHelpStartOnBoot.Text = "?";
+            this.buttonHelpStartOnBoot.UseVisualStyleBackColor = true;
+            this.buttonHelpStartOnBoot.MouseEnter += new System.EventHandler(this.buttonHelpStartOnBoot_MouseEnter);
+            // 
+            // chkStartOnBoot
+            // 
+            this.chkStartOnBoot.AutoSize = true;
+            this.chkStartOnBoot.Location = new System.Drawing.Point(9, 100);
+            this.chkStartOnBoot.Name = "chkStartOnBoot";
+            this.chkStartOnBoot.Size = new System.Drawing.Size(87, 17);
+            this.chkStartOnBoot.TabIndex = 3;
+            this.chkStartOnBoot.Text = "Start on boot";
+            this.chkStartOnBoot.UseVisualStyleBackColor = true;
             // 
             // grpPriority
             // 
@@ -204,7 +188,7 @@ namespace IdleMaster
             this.grpPriority.Controls.Add(this.radIdleLeastDrops);
             this.grpPriority.Controls.Add(this.radIdleMostDrops);
             this.grpPriority.Controls.Add(this.radIdleDefault);
-            this.grpPriority.Location = new System.Drawing.Point(13, 222);
+            this.grpPriority.Location = new System.Drawing.Point(13, 243);
             this.grpPriority.Name = "grpPriority";
             this.grpPriority.Size = new System.Drawing.Size(392, 92);
             this.grpPriority.TabIndex = 1;
@@ -262,7 +246,7 @@ namespace IdleMaster
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(261, 283);
+            this.btnCancel.Location = new System.Drawing.Point(324, 341);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -273,7 +257,7 @@ namespace IdleMaster
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(180, 283);
+            this.btnOK.Location = new System.Drawing.Point(243, 341);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -293,7 +277,7 @@ namespace IdleMaster
             // 
             this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdvanced.Image = global::IdleMaster.Properties.Resources.imgLock;
-            this.btnAdvanced.Location = new System.Drawing.Point(12, 283);
+            this.btnAdvanced.Location = new System.Drawing.Point(13, 341);
             this.btnAdvanced.Name = "btnAdvanced";
             this.btnAdvanced.Size = new System.Drawing.Size(25, 23);
             this.btnAdvanced.TabIndex = 4;
@@ -309,7 +293,7 @@ namespace IdleMaster
             this.grpIdlingQuantity.Controls.Add(this.radOneThenMany);
             this.grpIdlingQuantity.Controls.Add(this.radManyThenOne);
             this.grpIdlingQuantity.Controls.Add(this.radOneGameOnly);
-            this.grpIdlingQuantity.Location = new System.Drawing.Point(13, 124);
+            this.grpIdlingQuantity.Location = new System.Drawing.Point(13, 145);
             this.grpIdlingQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.grpIdlingQuantity.Name = "grpIdlingQuantity";
             this.grpIdlingQuantity.Padding = new System.Windows.Forms.Padding(2);
@@ -317,6 +301,18 @@ namespace IdleMaster
             this.grpIdlingQuantity.TabIndex = 5;
             this.grpIdlingQuantity.TabStop = false;
             this.grpIdlingQuantity.Text = "Idling Behavior";
+            // 
+            // radAlwaysMany
+            // 
+            this.radAlwaysMany.AutoSize = true;
+            this.radAlwaysMany.Checked = true;
+            this.radAlwaysMany.Location = new System.Drawing.Point(7, 18);
+            this.radAlwaysMany.Name = "radAlwaysMany";
+            this.radAlwaysMany.Size = new System.Drawing.Size(232, 17);
+            this.radAlwaysMany.TabIndex = 7;
+            this.radAlwaysMany.TabStop = true;
+            this.radAlwaysMany.Text = "Idle games simultaneously regardless of time";
+            this.radAlwaysMany.UseVisualStyleBackColor = true;
             // 
             // radOneThenMany
             // 
@@ -350,25 +346,13 @@ namespace IdleMaster
             this.radOneGameOnly.Text = "Idle each game individually";
             this.radOneGameOnly.UseVisualStyleBackColor = true;
             // 
-            // radAlwaysMany
-            // 
-            this.radAlwaysMany.AutoSize = true;
-            this.radAlwaysMany.Checked = true;
-            this.radAlwaysMany.Location = new System.Drawing.Point(7, 18);
-            this.radAlwaysMany.Name = "radAlwaysMany";
-            this.radAlwaysMany.Size = new System.Drawing.Size(232, 17);
-            this.radAlwaysMany.TabIndex = 7;
-            this.radAlwaysMany.TabStop = true;
-            this.radAlwaysMany.Text = "Idle games simultaneously regardless of time";
-            this.radAlwaysMany.UseVisualStyleBackColor = true;
-            // 
             // frmSettings
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(417, 362);
+            this.ClientSize = new System.Drawing.Size(417, 376);
             this.Controls.Add(this.grpIdlingQuantity);
             this.Controls.Add(this.btnAdvanced);
             this.Controls.Add(this.btnOK);

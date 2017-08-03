@@ -722,6 +722,7 @@ namespace IdleMaster
             lnkResetCookies.Text = "(" + localization.strings.sign_out + ")";
             toolStripStatusLabel1.Text = localization.strings.next_check;
             toolStripStatusLabel1.ToolTipText = localization.strings.next_check;
+            choiceGameToolStripMenuItem.Text = localization.strings.choose_game;
             
             lblSignedOnAs.Text = localization.strings.signed_in_as;
             GamesState.Columns[0].Text = localization.strings.name;

@@ -129,6 +129,8 @@ namespace IdleMaster
         ttHints.SetToolTip(chkIgnoreClientStatus, localization.strings.ignore_client_status);
         chkShowUsername.Text = localization.strings.show_username;
         ttHints.SetToolTip(chkShowUsername, localization.strings.show_username);
+        radAlwaysMany.Text = localization.strings.idle_alwaysmany;
+        ttHints.SetToolTip(radAlwaysMany, localization.strings.idle_alwaysmany);
         radOneGameOnly.Text = localization.strings.idle_individual;
         ttHints.SetToolTip(radOneGameOnly, localization.strings.idle_individual);
         radManyThenOne.Text = localization.strings.idle_simultaneous;
@@ -143,6 +145,9 @@ namespace IdleMaster
         ttHints.SetToolTip(radIdleMostDrops, localization.strings.order_most);
         radIdleLeastDrops.Text = localization.strings.order_least;
         ttHints.SetToolTip(radIdleLeastDrops, localization.strings.order_least);
+        chkStartOnBoot.Text = localization.strings.start_on_boot;
+        ttHints.SetToolTip(chkStartOnBoot, localization.strings.start_on_boot);
+        ttHints.SetToolTip(buttonHelpStartOnBoot, localization.strings.start_on_boot_hint);
         lblLanguage.Text = localization.strings.interface_language;
 
         if (Settings.Default.OneThenMany)
@@ -187,8 +192,6 @@ namespace IdleMaster
             chkStartOnBoot.Enabled = false;
             buttonHelpStartOnBoot.Enabled = true;
             buttonHelpStartOnBoot.Visible = true;
-            ttHints.SetToolTip(buttonHelpStartOnBoot, "IdleMaster needs Steam running, to start on boot you have to make steam start on boot first\n"+
-                                                      "(Steam-Settings-Interface-Run Steam when my computer starts)");
         }
         if (getStartOnBoot())
         {
