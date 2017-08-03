@@ -489,6 +489,15 @@ namespace IdleMaster.localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open links in the Steam client.
+        /// </summary>
+        internal static string open_links_in_client {
+            get {
+                return ResourceManager.GetString("open_links_in_client", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default (Alphabetical Order).
         /// </summary>
         internal static string order_default {

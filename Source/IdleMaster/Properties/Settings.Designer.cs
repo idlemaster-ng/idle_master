@@ -288,5 +288,17 @@ namespace IdleMaster.Properties {
                 this["StartOnBoot"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool openLinksInClient {
+            get {
+                return ((bool)(this["openLinksInClient"]));
+            }
+            set {
+                this["openLinksInClient"] = value;
+            }
+        }
     }
 }

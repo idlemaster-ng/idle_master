@@ -74,6 +74,7 @@ namespace IdleMaster
         Settings.Default.minToTray = chkMinToTray.Checked;
         Settings.Default.ignoreclient = chkIgnoreClientStatus.Checked;
         Settings.Default.showUsername = chkShowUsername.Checked;
+        Settings.Default.openLinksInClient = openInClient.Checked;
         setStartOnBoot(chkStartOnBoot.Checked);
         Settings.Default.Save();
         Close();
@@ -147,6 +148,8 @@ namespace IdleMaster
         ttHints.SetToolTip(radIdleLeastDrops, localization.strings.order_least);
         chkStartOnBoot.Text = localization.strings.start_on_boot;
         ttHints.SetToolTip(chkStartOnBoot, localization.strings.start_on_boot);
+        openInClient.Text = localization.strings.open_links_in_client;
+        ttHints.SetToolTip(openInClient, localization.strings.open_links_in_client);
         ttHints.SetToolTip(buttonHelpStartOnBoot, localization.strings.start_on_boot_hint);
         lblLanguage.Text = localization.strings.interface_language;
 
@@ -197,6 +200,7 @@ namespace IdleMaster
         {
             chkStartOnBoot.Checked = true;
         }
+        openInClient.Checked = Settings.Default.openLinksInClient;
     }
 
     private void btnAdvanced_Click(object sender, EventArgs e)
