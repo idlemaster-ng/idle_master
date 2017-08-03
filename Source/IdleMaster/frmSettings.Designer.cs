@@ -84,6 +84,7 @@ namespace IdleMaster
             this.cboLanguage.FormattingEnabled = true;
             this.cboLanguage.Items.AddRange(new object[] {
             "English",
+            "Arabic",
             "Chinese (Simplified, China)",
             "Chinese (Traditional, China)",
             "Czech",

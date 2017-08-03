@@ -615,6 +615,9 @@ namespace IdleMaster
                 string language_string = "";
                 switch (Settings.Default.language)
                 {
+                    case "Arabic":
+                        language_string = "ar";
+                        break;
                     case "Bulgarian":
                         language_string = "bg";
                         break;
