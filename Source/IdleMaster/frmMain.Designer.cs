@@ -85,6 +85,8 @@ namespace IdleMaster
             this.Hours = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblHoursPlayed = new System.Windows.Forms.Label();
             this.tmrStatistics = new System.Windows.Forms.Timer(this.components);
+            this.btnChoice = new System.Windows.Forms.Button();
+            this.choiceGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTop.SuspendLayout();
             this.ssFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReadingPage)).BeginInit();
@@ -206,59 +208,60 @@ namespace IdleMaster
             this.fileToolStripMenuItem,
             this.gameToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.mnuTop.Location = new System.Drawing.Point(0, 0);
-            this.mnuTop.Name = "mnuTop";
-            this.mnuTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.mnuTop.Size = new System.Drawing.Size(304, 24);
-            this.mnuTop.TabIndex = 19;
-            this.mnuTop.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.mnuTop.Location = new System.Drawing.Point(0, 0);
+			this.mnuTop.Name = "mnuTop";
+			this.mnuTop.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+			this.mnuTop.Size = new System.Drawing.Size(304, 24);
+			this.mnuTop.TabIndex = 19;
+			this.mnuTop.Text = "menuStrip1";
+			// 
+			// fileToolStripMenuItem
+			// 
+			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
             this.blacklistToolStripMenuItem,
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgSettings;
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.settingsToolStripMenuItem.Text = "&Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            // 
-            // blacklistToolStripMenuItem
-            // 
-            this.blacklistToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgBlacklist;
-            this.blacklistToolStripMenuItem.Name = "blacklistToolStripMenuItem";
-            this.blacklistToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.blacklistToolStripMenuItem.Text = "&Blacklist";
-            this.blacklistToolStripMenuItem.Click += new System.EventHandler(this.blacklistToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(114, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgExit;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // gameToolStripMenuItem
-            // 
-            this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+			this.fileToolStripMenuItem.Text = "&File";
+			// 
+			// settingsToolStripMenuItem
+			// 
+			this.settingsToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgSettings;
+			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.settingsToolStripMenuItem.Text = "&Settings";
+			this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+			// 
+			// blacklistToolStripMenuItem
+			// 
+			this.blacklistToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgBlacklist;
+			this.blacklistToolStripMenuItem.Name = "blacklistToolStripMenuItem";
+			this.blacklistToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.blacklistToolStripMenuItem.Text = "&Blacklist";
+			this.blacklistToolStripMenuItem.Click += new System.EventHandler(this.blacklistToolStripMenuItem_Click);
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(114, 6);
+			// 
+			// exitToolStripMenuItem
+			// 
+			this.exitToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgExit;
+			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+			this.exitToolStripMenuItem.Text = "E&xit";
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+			// 
+			// gameToolStripMenuItem
+			// 
+			this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pauseIdlingToolStripMenuItem,
             this.resumeIdlingToolStripMenuItem,
             this.skipGameToolStripMenuItem,
+            this.choiceGameToolStripMenuItem,
             this.toolStripMenuItem2,
             this.blacklistCurrentGameToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
@@ -539,12 +542,31 @@ namespace IdleMaster
             this.tmrStatistics.Interval = 60000;
             this.tmrStatistics.Tick += new System.EventHandler(this.tmrStatistics_Tick);
             // 
+            // btnChoice
+            // 
+            this.btnChoice.Image = global::IdleMaster.Properties.Resources.imgChoiceSmall;
+            this.btnChoice.Location = new System.Drawing.Point(273, 135);
+            this.btnChoice.Name = "btnChoice";
+            this.btnChoice.Size = new System.Drawing.Size(15, 16);
+            this.btnChoice.TabIndex = 30;
+            this.btnChoice.UseVisualStyleBackColor = true;
+            this.btnChoice.Click += new System.EventHandler(this.btnChoice_Click);
+            // 
+            // choiceGameToolStripMenuItem
+            // 
+            this.choiceGameToolStripMenuItem.Image = global::IdleMaster.Properties.Resources.imgChoice;
+            this.choiceGameToolStripMenuItem.Name = "choiceGameToolStripMenuItem";
+            this.choiceGameToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.choiceGameToolStripMenuItem.Text = "&Choice Game";
+            this.choiceGameToolStripMenuItem.Click += new System.EventHandler(this.choiceGameToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(304, 339);
+            this.Controls.Add(this.btnChoice);
             this.Controls.Add(this.lblHoursPlayed);
             this.Controls.Add(this.GamesState);
             this.Controls.Add(this.lblSignedOnAs);
@@ -643,8 +665,10 @@ namespace IdleMaster
     private ColumnHeader GameName;
     private ColumnHeader Hours;
     private Label lblHoursPlayed;
-        private Timer tmrStatistics;
-        private ToolStripMenuItem statisticsToolStripMenuItem;
-    }
+    private Timer tmrStatistics;
+    private ToolStripMenuItem statisticsToolStripMenuItem;
+    private Button btnChoice;
+	private ToolStripMenuItem choiceGameToolStripMenuItem;
+  }
 }
 

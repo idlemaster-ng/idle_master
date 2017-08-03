@@ -78,29 +78,30 @@ namespace IdleMaster
                     AllBadges = AllBadges.OrderBy(b => b.RemainingCard).ToList();
                     break;
                 case "mostvalue":
-                    try
-                    {
-                        var query = string.Format("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids={0}",
-                        string.Join(",", AllBadges.Select(b => b.AppId)));
-                        var json = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(query);
-                        var convertedJson = JsonConvert.DeserializeObject<EnhancedsteamHelper>(json);
-                        foreach (var price in convertedJson.Avg_Values)
-                        {
-                            var badge = AllBadges.SingleOrDefault(b => b.AppId == price.AppId);
-                            if (badge != null)
-                                badge.AveragePrice = price.Avg_Price;
-                        }
-                        AllBadges = AllBadges.OrderByDescending(b => b.AveragePrice).ToList();
-                    }
-                    catch  
-                    {
-
-                    }                    
+                    _FillAveragePrice();
+                    AllBadges = AllBadges.OrderByDescending(b => b.AveragePrice).ToList();
                     break;
                 default:
                     return;
-            }
-        }
+      }
+    }
+
+	private void _FillAveragePrice()
+	{
+		if (!AllBadges.Any() || AllBadges.First().AveragePrice != 0)
+			return;
+
+                    var query = string.Format("http://api.enhancedsteam.com/market_data/average_card_prices/im.php?appids={0}",
+                      string.Join(",", AllBadges.Select(b => b.AppId)));
+                    var json = new WebClient() { Encoding = Encoding.UTF8 }.DownloadString(query);
+                    var convertedJson = JsonConvert.DeserializeObject<EnhancedsteamHelper>(json);
+                    foreach (var price in convertedJson.Avg_Values)
+                    {
+                        var badge = AllBadges.SingleOrDefault(b => b.AppId == price.AppId);
+                        if (badge != null)
+                            badge.AveragePrice = price.Avg_Price;
+                    }
+    }
 
         public void UpdateIdleProcesses()
         {
@@ -308,6 +309,7 @@ namespace IdleMaster
             btnResume.Visible = false;
             btnPause.Visible = true;
             btnSkip.Visible = true;
+			btnChoice.Visible = true;
             resumeIdlingToolStripMenuItem.Enabled = false;
             pauseIdlingToolStripMenuItem.Enabled = false;
             skipGameToolStripMenuItem.Enabled = false;
@@ -349,6 +351,7 @@ namespace IdleMaster
             btnResume.Visible = false;
             btnPause.Visible = false;
             btnSkip.Visible = false;
+			btnChoice.Visible = false;
             resumeIdlingToolStripMenuItem.Enabled = false;
             pauseIdlingToolStripMenuItem.Enabled = false;
             skipGameToolStripMenuItem.Enabled = false;
@@ -378,6 +381,7 @@ namespace IdleMaster
                 GamesState.Visible = false;
                 btnPause.Visible = false;
                 btnSkip.Visible = false;
+                btnChoice.Visible = false;
                 lblCurrentStatus.Text = localization.strings.not_ingame;
                 lblHoursPlayed.Visible = false;
                 picIdleStatus.Image = null;
@@ -1087,5 +1091,45 @@ namespace IdleMaster
             // Save settings
             Settings.Default.Save();
         }
-    }
+
+	private void btnChoice_Click(object sender, EventArgs e)
+	{
+		if (!IsSteamReady || !CanIdleBadges.Any())
+			return;
+
+		_FillAveragePrice();
+
+		using (var formChoiceGame = new frmChoiceGame())
+		{
+			formChoiceGame.Initialize(CanIdleBadges);
+			formChoiceGame.Badge = CurrentBadge;
+
+			if (formChoiceGame.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+				return;
+
+			AllBadges = formChoiceGame.SortedBadges;
+
+			if (CurrentBadge == formChoiceGame.Badge)
+				return;
+
+			StopIdle();
+
+			var badge = formChoiceGame.Badge;
+			if (badge == null)
+			{
+				btnResume.PerformClick();
+				return;
+    		}
+
+			StartSoloIdle(badge);
+
+			UpdateStateInfo();
+		}
+	}
+
+	private void choiceGameToolStripMenuItem_Click(object sender, EventArgs e)
+	{
+		btnChoice.PerformClick();
+	}
+  }
 }
