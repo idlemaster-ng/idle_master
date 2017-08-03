@@ -19,6 +19,13 @@ namespace IdleMaster
 
 		public void Initialize(IEnumerable<Badge> CanIdleBadges)
 		{
+            this.Text = localization.strings.choose_game;
+            _NameColumn.HeaderText = localization.strings.game_name;
+            _CardsCountColumn.HeaderText = localization.strings.cards_count;
+            _AveragePriceColumn.HeaderText = localization.strings.average_price;
+            _OkButton.Text = localization.strings.ok;
+            _CancelButton.Text = localization.strings.cancel;
+
 			if (CanIdleBadges == null)
 				return;
 

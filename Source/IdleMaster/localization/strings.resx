@@ -341,4 +341,26 @@ your Steam account.</value>
   <data name="idle_onethenmany" xml:space="preserve">
     <value>Idle games with more than 2 hours individually, then simultaneously</value>
   </data>
+  <data name="idle_alwaysmany" xml:space="preserve">
+    <value>Idle games simultaneously regardless of time</value>
+  </data>
+  <data name="average_price" xml:space="preserve">
+    <value>Average price</value>
+  </data>
+  <data name="cards_count" xml:space="preserve">
+    <value>Cards count</value>
+  </data>
+  <data name="choose_game" xml:space="preserve">
+    <value>Choose game</value>
+  </data>
+  <data name="game_name" xml:space="preserve">
+    <value>Game name</value>
+  </data>
+  <data name="start_on_boot" xml:space="preserve">
+    <value>Start on boot</value>
+  </data>
+  <data name="start_on_boot_hint" xml:space="preserve">
+    <value>IdleMaster needs Steam running, to start on boot you have to make steam start on boot first
+(Steam-Settings-Interface-Run Steam when my computer starts)</value>
+  </data>
 </root>
