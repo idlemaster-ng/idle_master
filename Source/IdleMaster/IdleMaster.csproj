@@ -199,6 +199,7 @@
     <EmbeddedResource Include="frmStatistics.resx">
       <DependentUpon>frmStatistics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="localization\strings.ar.resx" />
     <EmbeddedResource Include="localization\strings.cs.resx" />
     <EmbeddedResource Include="localization\strings.de.resx" />
     <EmbeddedResource Include="localization\strings.el.resx" />
@@ -287,7 +288,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo1.ico" />
-	<None Include="Resources\media-Choice.png" />
+    <None Include="Resources\media-Choice.png" />
     <None Include="Resources\media-choice-2x.png" />
     <None Include="Resources\bar-chart-2x.png" />
     <None Include="Resources\globe-2x.png" />
