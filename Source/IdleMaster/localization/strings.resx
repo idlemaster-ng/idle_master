@@ -363,4 +363,7 @@ your Steam account.</value>
     <value>IdleMaster needs Steam running, to start on boot you have to make steam start on boot first
 (Steam-Settings-Interface-Run Steam when my computer starts)</value>
   </data>
+  <data name="open_links_in_client" xml:space="preserve">
+    <value>Open links in the Steam client</value>
+  </data>
 </root>
