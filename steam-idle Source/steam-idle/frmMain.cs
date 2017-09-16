@@ -15,7 +15,13 @@ namespace steam_idle
         public frmMain(long appid)
         {
             InitializeComponent();
-            picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + appid.ToString() + "/header_292x136.jpg");
+            try
+            {
+                picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + appid.ToString() + "/header_292x136.jpg");
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
