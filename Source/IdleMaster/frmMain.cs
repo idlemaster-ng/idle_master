@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Management;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -588,17 +589,18 @@ namespace IdleMaster
         private void frmMain_Load(object sender, EventArgs e)
         {
             // Copy external references to the output directory.  This allows ClickOnce install.
-            if (File.Exists(Environment.CurrentDirectory + "\\steam_api.dll") == false)
+            var appDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            if (File.Exists(Path.Combine(appDirectory, "steam_api.dll")) == false)
             {
-                CopyResource("IdleMaster.Resources.steam_api.dll", Environment.CurrentDirectory + @"\steam_api.dll");
+                CopyResource("IdleMaster.Resources.steam_api.dll", Path.Combine(appDirectory, "steam_api.dll"));
             }
-            if (File.Exists(Environment.CurrentDirectory + "\\CSteamworks.dll") == false)
+            if (File.Exists(Path.Combine(appDirectory, "CSteamworks.dll")) == false)
             {
-                CopyResource("IdleMaster.Resources.CSteamworks.dll", Environment.CurrentDirectory + @"\CSteamworks.dll");
+                CopyResource("IdleMaster.Resources.CSteamworks.dll", Path.Combine(appDirectory, "CSteamworks.dll"));
             }
-            if (File.Exists(Environment.CurrentDirectory + "\\steam-idle.exe") == false)
+            if (File.Exists(Path.Combine(appDirectory, "steam-idle.exe")) == false)
             {
-                CopyResource("IdleMaster.Resources.steam-idle.exe", Environment.CurrentDirectory + @"\steam-idle.exe");
+                CopyResource("IdleMaster.Resources.steam-idle.exe", Path.Combine(appDirectory, "steam-idle.exe"));
             }
 
             // Update the settings, if needed.  When the application updates, settings will persist.

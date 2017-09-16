@@ -11,7 +11,7 @@ namespace IdleMaster
   {
     private static readonly object LogLock = new object();
 
-    private static readonly string ExceptionPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @".\error.log";
+    private static readonly string ExceptionPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "error.log");
 
     public static void Exception(Exception ex, params string[] messages)
     {
