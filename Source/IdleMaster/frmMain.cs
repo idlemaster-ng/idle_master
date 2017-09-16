@@ -590,14 +590,25 @@ namespace IdleMaster
         {
             // Copy external references to the output directory.  This allows ClickOnce install.
             var appDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+#if LINUX
+            if (File.Exists(Path.Combine(appDirectory, "libsteam_api.so")) == false)
+            {
+                CopyResource("IdleMaster.Resources.Linux_x64.libsteam_api.so", Path.Combine(appDirectory, "libsteam_api.so"));
+            }
+            if (File.Exists(Path.Combine(appDirectory, "libCSteamworks.so")) == false)
+            {
+                CopyResource("IdleMaster.Resources.Linux_x64.libCSteamworks.so", Path.Combine(appDirectory, "libCSteamworks.so"));
+            }
+#else
             if (File.Exists(Path.Combine(appDirectory, "steam_api.dll")) == false)
             {
-                CopyResource("IdleMaster.Resources.steam_api.dll", Path.Combine(appDirectory, "steam_api.dll"));
+                CopyResource("IdleMaster.Resources.Windows_x86.steam_api.dll", Path.Combine(appDirectory, "steam_api.dll"));
             }
             if (File.Exists(Path.Combine(appDirectory, "CSteamworks.dll")) == false)
             {
-                CopyResource("IdleMaster.Resources.CSteamworks.dll", Path.Combine(appDirectory, "CSteamworks.dll"));
+                CopyResource("IdleMaster.Resources.Windows_x86.CSteamworks.dll", Path.Combine(appDirectory, "CSteamworks.dll"));
             }
+#endif
             if (File.Exists(Path.Combine(appDirectory, "steam-idle.exe")) == false)
             {
                 CopyResource("IdleMaster.Resources.steam-idle.exe", Path.Combine(appDirectory, "steam-idle.exe"));
