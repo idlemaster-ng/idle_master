@@ -36,7 +36,11 @@ namespace IdleMaster
             if (InIdle)
                 return idleProcess;
 
+#if LINUX
+            idleProcess = Process.Start(new ProcessStartInfo("mono", $"./steam-idle.exe {AppId.ToString()}") { WindowStyle = ProcessWindowStyle.Hidden, UseShellExecute = false, CreateNoWindow = true });
+#else
             idleProcess = Process.Start(new ProcessStartInfo("steam-idle.exe", AppId.ToString()) { WindowStyle = ProcessWindowStyle.Hidden });
+#endif
             return idleProcess;
         }
 

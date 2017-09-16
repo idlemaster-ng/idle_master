@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace IdleMaster
@@ -26,6 +27,7 @@ namespace IdleMaster
 
         }
 
+        Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         Application.ThreadException += (o, a) => Logger.Exception(a.Exception);
         Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
         Application.EnableVisualStyles();
