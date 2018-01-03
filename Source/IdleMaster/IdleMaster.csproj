@@ -44,7 +44,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -68,6 +68,25 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug %28Linux%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug %28Linux%29\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;LINUX</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release %28Linux%29|AnyCPU'">
+    <OutputPath>bin\Release %28Linux%29\</OutputPath>
+    <DefineConstants>TRACE;LINUX</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack, Version=1.5.1.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
@@ -247,10 +266,12 @@
     <None Include="Resources\ban-2x.png" />
     <EmbeddedResource Include="Resources\steam-idle.exe" />
     <None Include="Resources\Changelog.rtf" />
+    <EmbeddedResource Include="Resources\Linux_x64\libCSteamworks.so" />
+    <EmbeddedResource Include="Resources\Linux_x64\libsteam_api.so" />
     <None Include="Resources\x-2x.png" />
     <None Include="Resources\cog-2x.png" />
     <None Include="Resources\check-2x.png" />
-    <EmbeddedResource Include="Resources\CSteamworks.dll" />
+    <EmbeddedResource Include="Resources\Windows_x86\CSteamworks.dll" />
     <None Include="Resources\power-standby-2x.png" />
     <None Include="Resources\info-2x.png" />
     <None Include="Resources\media-pause-2x.png" />
@@ -259,7 +280,7 @@
     <None Include="Resources\media-step-forward.png" />
     <None Include="Resources\media-play.png" />
     <None Include="Resources\media-pause.png" />
-    <EmbeddedResource Include="Resources\steam_api.dll" />
+    <EmbeddedResource Include="Resources\Windows_x86\steam_api.dll" />
     <None Include="Resources\select2-spinner.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -297,6 +318,16 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>REM this is a hacky workaround because not even some kind of OR is supported...
+set linux=false
+if "$(ConfigurationName)" == "Debug (Linux)" set linux=true
+if "$(ConfigurationName)" == "Release (Linux)" set linux=true
+
+if "%25Linux%25" == "true" (
+    xcopy "$(SolutionDir)..\Linux_x64\Steamworks.NET.dll" "$(TargetDir)" /y
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
